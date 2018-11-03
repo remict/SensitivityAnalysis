@@ -6,6 +6,7 @@ This script allows you to perform a sensitivity analysis for a given function, w
 
 The given script is configured for the example of the Ishigami function with a=7 and b=0.1.
 The results obtained approximate the theoretical results, namely:
+```
 S1  : 0.3139
 S2  : 0.4424
 S3  : 0
@@ -16,3 +17,4 @@ S123: 0
 ST1 : 0.5576
 ST2 : 0.4424
 ST3 : 0.2437
+```
