@@ -21,8 +21,8 @@ ST3 : 0.2437
 
 ## Outputs
 
-The script manages the post-processing of sensitivity indices by creating a visual that represents first-order sensitivity indices.
-A text file is also created and summarizes the script inputs, x-th order sensitivity indices, total sensitivity indices as well as the intermediate execution times of the script steps.
+The script manages the post-processing of sensitivity indices by creating a graphic that represents first-order sensitivity indices.
+A raw text file is also created and summarizes the script inputs, x-th order sensitivity indices, total sensitivity indices as well as the intermediate execution times of the script steps.
 
 ### Graphic output
 
