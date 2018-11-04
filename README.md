@@ -23,6 +23,7 @@ ST3 : 0.2437
 
 The script manages the post-processing of sensitivity indices by creating a graphic that represents first-order sensitivity indices.
 A raw text file is also created and summarizes the script inputs, x-th order sensitivity indices, total sensitivity indices as well as the intermediate execution times of the script steps.
+the example above shows the outputs obtained for the Ishigami function defined earlier and for a sample size s=7000.
 
 ### Graphic output
 
@@ -91,3 +92,23 @@ Creation of the output graph                    : 32m20s33ms
 Storage of the info.txt file                    : 32m20s64ms
 End                                             : 32m20s65ms
 ```
+
+### Results comparison 
+
+Indices | Theoriticals | s=1000 | s=2000 | s=7000 | s=15000
+------- | ------------ | ------ | ------ | ------ | -------
+S1 | 0.3139 | 0.2822 | 0.2891 | 0.3119 |
+S2 | 0.4424 | 0.4341 | 0.4432 | 0.4253 |
+S3 | 0 | -0.03871 | -0.01467 | -0.002792 |
+S12 | 0 | 0.01615 | 0.01901 | 0.002839 |
+S23 | 0 | 0.3063 | 0.2634 | 0.2627 |
+S13 | 0.2437 | 0.01615 | 0.01901|0.002839 |
+S123| 0 | -0.01615 | -0.01901 | -0.002839 |
+ST1 | 0.5576 | 0.5885 | 0.5525 | 0.5746 |
+ST2 | 0.4424 | 0.4502 | 0.4622 | 0.4281 |
+ST3 | 0.2437 | 0.2676 | 0.2487 | 0.26 |
+
+Distances from theoriticals results | s=1000 | s=2000 | s=7000 | s=15000
+----------------------------------- | ------ | ------ | ------ | -------
+Indices of x-th order | 0.3856 | 0.3485 | 0.3569 | 
+Total order indices | 0.0398 | 0.1856 | 0.0276 |
