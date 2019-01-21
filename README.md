@@ -1,7 +1,9 @@
 # Sensivity Analysis
 
 These scripts allow you to perform a sensitivity analysis for a given function, using the Sobol method. The parameters of the function to be analyzed are sampled according to the LHS method, considering that each parameter is derived from a continuous uniform law. It is therefore necessary to know the range of variation of each parameter. Each of the calculated indices is framed using the bootstrap method.
+
 The two scripts SensitivityAnalysis.R and SensitivityAnalysisLowerComplexity.R perform the same analysis but the method of calculating the total indices differs: the first script calculates these indices by complementarity whereas the second script calculates them by opposite.
+
 The following was obtained using the script SensitivityAnalysis.R.
 
 ## Running the tests
