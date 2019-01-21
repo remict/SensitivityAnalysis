@@ -17,7 +17,7 @@ max_order = 3
 # Number of bootstrap samples
 n_sample = 10000
 # Tolerated error for the symmetric confidence interval of the indices by bootstrap
-alpha = 0.10
+alpha = 0.05
 
 #########################################
 ### Variables related to the analysis ###
@@ -167,8 +167,9 @@ v_t[1] = 0
 
 # Initialization
 print("- Initialization")
-dir.create("SensitivityAnalysis")
-setwd(paste(getwd(),'/SensitivityAnalysis',sep='')) # Creating a working directory
+date_now = gsub(":",".",gsub(" ","'",as.character(Sys.time())))
+dir.create(paste("SensitivityAnalysis-",date_now,sep=''))
+setwd(paste(getwd(),'/SensitivityAnalysis-',date_now,sep='')) # Creating a working directory
 t_start_script = Sys.time()
 v_t[2] = as.numeric(difftime(Sys.time(),t_start_script,units="mins"))
 
@@ -282,22 +283,6 @@ for(z in 1:n){
 }
 rm(ind,z,v)
 str = str_c(str,'\n')
-if(max_order == n){
-  str = str_c(str,'Calculation by sum','\n')
-  v=NULL
-  for(z in 1:n){
-    ss=0
-    for(i in ls(pattern=paste("^s[0-9.*]*[",z,"][0-9.*]*",sep=''))) 
-      ss=ss+get(i)
-    v[z] = ss
-    assign(paste("sts",z,sep=''),ss)
-  }
-  v = signif(v,4)
-  for(z in 1:n)
-    str = str_c(str,"Total sensitivity index of ",names(bornes)[z],paste(rep(' ',max(unlist(lapply(t(t(names(bornes))),nchar)))-nchar(names(bornes)[z])),collapse='')," : ",ifelse(v[z]<0,'',' '),v[z],'\n')
-}
-rm(z,v)
-str = str_c(str,'\n')
 v_t[6] = as.numeric(difftime(Sys.time(),t_start_script,units="mins"))
 
 # Estimation of confidence intervals by bootstrap
@@ -387,7 +372,7 @@ cat('\n')
 cat("Number of samples        :",s,"\n")
 cat("Maximum order of indices :",max_order,"\n")
 cat("Number of factors        :",n,"\n")
-for(i in 1:n)
+for(i in 1:ncol(bornes))
     cat("-> ",names(bornes)[i],", sampled by LHS according to uniform continuous law of parameters min = ",bornes[1,i]," and max = ",bornes[2,i],"\n",sep='')
 cat('\n')
 cat("----------- Results of the sensitivity analysis ------------\n")
